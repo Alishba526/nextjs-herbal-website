@@ -143,6 +143,11 @@ export function Navbar() {
           <span className="text-[10px] font-medium">Search</span>
         </button>
 
+        <Link href={mounted && currentUser ? "/login" : "/login"} className="flex flex-col items-center gap-1 text-muted-foreground">
+          <User className="w-5 h-5" />
+          <span className="text-[10px] font-medium">{mounted && currentUser ? currentUser.name.split(" ")[0] : "Login"}</span>
+        </Link>
+
         <Link href="/wishlist" className="flex flex-col items-center gap-1 text-muted-foreground">
           <div className="relative">
             <Heart className="w-5 h-5" />
