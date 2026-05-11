@@ -39,6 +39,12 @@ export default function Login() {
         <Button type="submit" className="w-full rounded-full" size="lg">Sign In</Button>
         <p className="text-sm text-center text-muted-foreground">Don&apos;t have an account? <Link href="/register" className="text-primary font-semibold">Register</Link></p>
       </form>
+
+      <div className="mt-6 pt-6 border-t border-border text-center">
+        <Link href="/admin/login" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+          🔐 Admin Login
+        </Link>
+      </div>
     </AuthShell>
   );
 }

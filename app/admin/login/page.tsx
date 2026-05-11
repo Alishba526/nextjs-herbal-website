@@ -75,8 +75,8 @@ export default function AdminLogin() {
 
           <div className="mt-6 p-4 bg-secondary/50 rounded-xl">
             <p className="text-xs font-semibold mb-2">🔑 Default Admin Credentials</p>
-            <p className="text-xs text-muted-foreground">Email: admin@growzix.com</p>
-            <p className="text-xs text-muted-foreground">Password: Admin@1234</p>
+            {/* <p className="text-xs text-muted-foreground">Email: admin@growzix.com</p>
+            <p className="text-xs text-muted-foreground">Password: Admin@1234</p> */}
           </div>
 
           <div className="mt-4 text-center">
