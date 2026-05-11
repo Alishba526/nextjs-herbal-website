@@ -57,34 +57,34 @@ function ShopContent() {
       <h1 className="text-4xl font-bold font-serif mb-2">Herbal Shop</h1>
       <p className="text-muted-foreground mb-8">{filtered.length} products available{category && ` in ${category}`}</p>
 
-      <div className="grid lg:grid-cols-[260px_1fr] gap-8">
-        <aside className="space-y-6">
-          <div className="bg-card rounded-2xl p-5 border border-border">
-            <h3 className="font-semibold mb-3">Search</h3>
+      <div className="grid lg:grid-cols-[240px_1fr] gap-6 md:gap-8">
+        <aside className="space-y-4 md:space-y-6">
+          <div className="bg-card rounded-2xl p-4 md:p-5 border border-border">
+            <h3 className="font-semibold mb-3 text-sm md:text-base">Search</h3>
             <form onSubmit={e => { e.preventDefault(); updateSearch({ q }); }} className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input value={q} onChange={e => setQ(e.target.value)} placeholder="Search..." className="pl-9" />
+              <Input value={q} onChange={e => setQ(e.target.value)} placeholder="Search..." className="pl-9 h-9 text-sm" />
             </form>
           </div>
-          <div className="bg-card rounded-2xl p-5 border border-border">
-            <h3 className="font-semibold mb-3">Categories</h3>
-            <ul className="space-y-1.5 text-sm max-h-64 overflow-y-auto">
-              <li><button onClick={() => updateSearch({ category: "" })} className={`hover:text-primary ${!category ? "text-primary font-semibold" : ""}`}>All</button></li>
+          <div className="bg-card rounded-2xl p-4 md:p-5 border border-border">
+            <h3 className="font-semibold mb-3 text-sm md:text-base">Categories</h3>
+            <ul className="space-y-1.5 text-xs md:text-sm max-h-48 md:max-h-64 overflow-y-auto scrollbar-hide">
+              <li><button onClick={() => updateSearch({ category: "" })} className={`hover:text-primary ${!category ? "text-primary font-semibold" : ""}`}>All Products</button></li>
               {CATEGORY_LIST.map((c: any) => (
                 <li key={c.name}><button onClick={() => updateSearch({ category: c.name })} className={`hover:text-primary text-left ${category === c.name ? "text-primary font-semibold" : ""}`}>{c.name}</button></li>
               ))}
             </ul>
           </div>
-          <div className="bg-card rounded-2xl p-5 border border-border">
-            <h3 className="font-semibold mb-3">Price: ${price[0]} – ${price[1]}</h3>
-            <Slider value={price} onValueChange={setPrice} min={0} max={100} step={1} />
+          <div className="bg-card rounded-2xl p-4 md:p-5 border border-border">
+            <h3 className="font-semibold mb-3 text-sm md:text-base">Price: ${price[0]} – ${price[1]}</h3>
+            <Slider value={price} onValueChange={setPrice} min={0} max={100} step={1} className="py-2" />
           </div>
-          <div className="bg-card rounded-2xl p-5 border border-border">
-            <h3 className="font-semibold mb-3">Minimum Rating</h3>
+          <div className="bg-card rounded-2xl p-4 md:p-5 border border-border">
+            <h3 className="font-semibold mb-3 text-sm md:text-base">Min. Rating</h3>
             <div className="flex flex-wrap gap-2">
               {[0, 3, 4, 4.5].map(r => (
-                <button key={r} onClick={() => setMinRating(r)} className={`px-3 py-1 rounded-full text-xs border ${minRating === r ? "bg-primary text-primary-foreground border-primary" : "border-border"}`}>
-                  {r === 0 ? "All" : `${r}+`}
+                <button key={r} onClick={() => setMinRating(r)} className={`px-3 py-1 rounded-full text-[10px] md:text-xs border transition ${minRating === r ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary"}`}>
+                  {r === 0 ? "Any" : `${r}+ ⭐`}
                 </button>
               ))}
             </div>
@@ -92,12 +92,12 @@ function ShopContent() {
         </aside>
 
         <div>
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <p className="text-sm text-muted-foreground">Showing {paged.length} of {filtered.length}</p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
+            <p className="text-xs md:text-sm text-muted-foreground">Showing {paged.length} of {filtered.length} products</p>
             <select value={sort}
               onChange={e => updateSearch({ sort: e.target.value })}
-              className="bg-card border border-border rounded-full px-4 py-2 text-sm">
-              <option value="featured">Featured</option>
+              className="bg-card border border-border rounded-full px-4 py-2 text-xs md:text-sm outline-none focus:ring-1 focus:ring-primary w-full sm:w-auto">
+              <option value="featured">Sort by: Featured</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
               <option value="rating">Top Rated</option>
@@ -105,12 +105,12 @@ function ShopContent() {
           </div>
 
           {paged.length === 0 ? (
-            <div className="text-center py-20 bg-card rounded-2xl border border-border">
-              <p className="text-muted-foreground">No products match your filters.</p>
-              <Button variant="link" onClick={() => router.push("/shop")}>Reset filters</Button>
+            <div className="text-center py-16 md:py-20 bg-card rounded-2xl border border-border">
+              <p className="text-muted-foreground text-sm">No products match your filters.</p>
+              <Button variant="link" onClick={() => router.push("/shop")} className="text-primary text-sm">Reset all filters</Button>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
               {paged.map(p => <ProductCard key={p.id} product={p} compact />)}
             </div>
           )}

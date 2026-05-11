@@ -18,6 +18,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "HerbaInn — Pure Natural Herbal Products",
   description: "Pakistan's leading herbal store. 100% organic, chemical-free herbal teas, oils, skincare, capsules and more.",
+  icons: {
+    icon: "/assets/logo.png",
+    apple: "/assets/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -28,8 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-       <link rel="icon" href="/logo.png" />
-       <link rel="apple-touch-icon" href="/logo.png" />
+       <link rel="icon" href="/assets/logo.png" />
+       <link rel="apple-touch-icon" href="/assets/logo.png" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <Navbar />

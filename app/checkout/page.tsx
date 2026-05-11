@@ -116,13 +116,13 @@ export default function Checkout() {
           <h3 className="font-bold text-lg mb-4">Order Summary</h3>
           <div className="space-y-3 max-h-60 overflow-y-auto">
             {cart.map(c => (
-              <div key={c.product.id} className="flex gap-3 text-sm">
-                <Image src={c.product.image} alt="" width={48} height={48} className="w-12 h-12 rounded object-cover" />
-                <div className="flex-1">
-                  <p className="font-medium line-clamp-1">{c.product.title}</p>
-                  <p className="text-muted-foreground text-xs">Qty: {c.qty}</p>
+              <div key={c.product.id} className="flex gap-3 text-sm items-center">
+                <Image src={c.product.image} alt="" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12 rounded object-cover shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium line-clamp-1 text-xs md:text-sm">{c.product.title}</p>
+                  <p className="text-muted-foreground text-[10px] md:text-xs">Qty: {c.qty}</p>
                 </div>
-                <p className="font-semibold">{formatPrice(c.product.price * c.qty)}</p>
+                <p className="font-semibold text-xs md:text-sm shrink-0">{formatPrice(c.product.price * c.qty)}</p>
               </div>
             ))}
           </div>

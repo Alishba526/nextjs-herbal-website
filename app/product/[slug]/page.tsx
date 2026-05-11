@@ -163,13 +163,13 @@ export default function ProductPage() {
       </div>
 
       <div className="mt-14">
-        <Tabs defaultValue="desc">
-          <TabsList>
-            <TabsTrigger value="desc">Description</TabsTrigger>
-            <TabsTrigger value="benefits">Benefits</TabsTrigger>
-            <TabsTrigger value="ingredients">Ingredients</TabsTrigger>
-            <TabsTrigger value="usage">Usage</TabsTrigger>
-            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+        <Tabs defaultValue="desc" className="w-full">
+          <TabsList className="w-full justify-start overflow-x-auto flex-nowrap h-auto p-1 bg-secondary/50 rounded-xl scrollbar-hide">
+            <TabsTrigger value="desc" className="rounded-lg py-2 px-4">Description</TabsTrigger>
+            <TabsTrigger value="benefits" className="rounded-lg py-2 px-4">Benefits</TabsTrigger>
+            <TabsTrigger value="ingredients" className="rounded-lg py-2 px-4">Ingredients</TabsTrigger>
+            <TabsTrigger value="usage" className="rounded-lg py-2 px-4">Usage</TabsTrigger>
+            <TabsTrigger value="reviews" className="rounded-lg py-2 px-4">Reviews</TabsTrigger>
           </TabsList>
           <TabsContent value="desc" className="prose max-w-none mt-6 text-muted-foreground leading-relaxed">{product.description}</TabsContent>
           <TabsContent value="benefits" className="mt-6"><ul className="space-y-2">{product.benefits.map((b: string) => <li key={b} className="flex gap-2"><span className="text-primary">✓</span>{b}</li>)}</ul></TabsContent>

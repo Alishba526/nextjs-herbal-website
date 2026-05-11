@@ -19,10 +19,10 @@ const FEATURES = [
 ];
 
 const REVIEWS = [
-  { name: "Ayesha Khan", text: "MEIDU shampoo ne mere grey hair ko 5 minute me cover kar diya. Amazing!", rating: 5 },
-  { name: "Hamza Ali", text: "Keratin mask use karne ke baad hair silky and shiny ho gaye.", rating: 5 },
-  { name: "Sana Tariq", text: "Avocado shampoo bohot refreshing hai, scalp ko bhi healthy karta hai.", rating: 5 },
-  { name: "Bilal Ahmed", text: "Quality top notch, packaging premium, delivery bhi fast thi.", rating: 5 },
+  { name: "Ayesha Khan", text: "MEIDU shampoo covered my grey hair in just 5 minutes. Amazing results!", rating: 5 },
+  { name: "Hamza Ali", text: "My hair became silky and shiny after using the Keratin mask. Highly recommended!", rating: 5 },
+  { name: "Sana Tariq", text: "The Avocado shampoo is very refreshing and has significantly improved my scalp health.", rating: 5 },
+  { name: "Bilal Ahmed", text: "Top-notch quality, premium packaging, and the delivery was incredibly fast.", rating: 5 },
 ];
 
 export default function Home() {
@@ -69,7 +69,7 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-4 pb-16">
         <SectionTitle eyebrow="Top Picks" title="Best Selling Products" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-10">
           {PRODUCTS.map(p => <ProductCard key={p.id} product={p} compact />)}
         </div>
       </section>

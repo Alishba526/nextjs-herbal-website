@@ -27,11 +27,24 @@ export default function Contact() {
             </div>
           ))}
         </div>
-        <form onSubmit={e => { e.preventDefault(); alert.success("Message sent!"); }} className="bg-card border border-border rounded-2xl p-6 space-y-4">
-          <div><Label className="mb-2 block">Name</Label><Input required /></div>
-          <div><Label className="mb-2 block">Email</Label><Input type="email" required /></div>
-          <div><Label className="mb-2 block">Message</Label><Textarea rows={5} required /></div>
-          <Button className="w-full rounded-full" size="lg">Send Message</Button>
+        <form 
+          onSubmit={e => { 
+            e.preventDefault(); 
+            const fd = new FormData(e.currentTarget);
+            const name = fd.get("name");
+            const email = fd.get("email");
+            const message = fd.get("message");
+            const phone = "12818021541";
+            const text = `*New Contact Inquiry*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+            alert.success("Opening WhatsApp..."); 
+          }} 
+          className="bg-card border border-border rounded-2xl p-6 space-y-4"
+        >
+          <div><Label className="mb-2 block">Name</Label><Input name="name" required /></div>
+          <div><Label className="mb-2 block">Email</Label><Input name="email" type="email" required /></div>
+          <div><Label className="mb-2 block">Message</Label><Textarea name="message" rows={5} required /></div>
+          <Button className="w-full rounded-full" size="lg">Send via WhatsApp</Button>
         </form>
       </div>
     </div>
