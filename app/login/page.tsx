@@ -35,7 +35,7 @@ export default function Login() {
             <button type="button" onClick={() => setShow(!show)} className="absolute right-3 top-1/2 -translate-y-1/2">{show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}</button>
           </div>
         </div>
-        <div className="text-right text-sm"><Link href="/forgot-password" className="text-primary hover:underline">Forgot password?</Link></div>
+        <div className="text-right text-sm"><Link href="/forgot-password" className="text-primary hover:underline"></Link></div>
         <Button type="submit" className="w-full rounded-full" size="lg">Sign In</Button>
         <p className="text-sm text-center text-muted-foreground">Don&apos;t have an account? <Link href="/register" className="text-primary font-semibold">Register</Link></p>
       </form>
