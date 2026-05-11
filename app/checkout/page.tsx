@@ -18,7 +18,7 @@ export default function Checkout() {
   const router = useRouter();
   const subtotal = cart.reduce((a, c) => a + c.product.price * c.qty, 0);
   const total = subtotal;
-  const [payment, setPayment] = useState("cod");
+  const [payment, setPayment] = useState("card");
 
   if (!currentUser) {
     return (
@@ -103,7 +103,7 @@ export default function Checkout() {
 
           <Section title="Payment Method">
             <RadioGroup value={payment} onValueChange={setPayment} className="grid sm:grid-cols-2 gap-3">
-              {[["cod", "💵 Cash on Delivery"], ["card", "💳 Card Payment"], ["paypal", "🅿️ PayPal"], ["bank", "🏦 Bank Transfer"]].map(([v, l]) => (
+              {[["card", "💳 Card Payment"], ["bank", "🏦 Bank Transfer"]].map(([v, l]) => (
                 <label key={v} className="flex items-center gap-3 p-4 border border-border rounded-xl cursor-pointer has-[:checked]:border-primary has-[:checked]:bg-primary/5">
                   <RadioGroupItem value={v} /><span className="text-sm">{l}</span>
                 </label>
