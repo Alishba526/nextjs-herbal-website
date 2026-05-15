@@ -34,7 +34,10 @@ export default function RootLayout({
       <head>
        <link rel="icon" href="/assets/logo.png" />
        <link rel="apple-touch-icon" href="/assets/logo.png" />
-       <meta name="google-site-verification" content="N-dQ4BCgU5LJhbscIMPh5D7E0oIMpFAoIXKuMkDWtpc" />
+       <meta
+         name="google-site-verification"
+          content="N-dQ4BCgU5LJhbscIMPh5D7E0oIMpFAoIXKuMkDWtpc"
+         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <Navbar />
